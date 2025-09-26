@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <title>Alejandro Uriel Gonzalez Reyes</title>
+
+    <style>
+        :root {
+            --oxford-blue: #2c3e50; 
+            --zomp: #2ca58d;
+            --cambridge-blue: #6abc5c;
+            --baby-powder: #fffdf2;
+            --cyclamen: #B236E7;
+            --hover-dark: #1a252f;
+        }
+
+        /* Navbar personalizado */
+        .navbar {
+            background-color: var(--oxford-blue);
+            border: none;
+            border-radius: 0;
+        }
+
+        .navbar-brand,
+        .navbar-nav > li > a {
+            color: white !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav > li > a:hover,
+        .navbar-brand:hover {
+            background-color: var(--zomp) !important;
+            color: var(--baby-powder) !important;
+        }
+
+        /* Dropdown principal */
+        .dropdown-menu {
+            background-color: var(--baby-powder);
+            border: 1px solid var(--cambridge-blue);
+            border-radius: 8px;
+        }
+
+        .dropdown-menu > li > a {
+            color: var(--oxford-blue);
+            font-weight: 500;
+        }
+
+        .dropdown-menu > li > a:hover {
+            background-color: var(--cambridge-blue);
+            color: white;
+        }
+
+        /* Submenú (dropdown anidado) */
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
+        /* Jumbotron */
+        .jumbotron {
+            background: linear-gradient(135deg, var(--oxford-blue), var(--cyclamen));
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 48px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .jumbotron p {
+            font-size: 18px;
+        }
+
+        .btn-primary {
+            background-color: var(--zomp);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cambridge-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Mi Sitio</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                <!-- Unidad 1 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="xd.html">Tipos de ciberataques</a></li>
+                        <li><a href="02.html">Tipos de malware</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 2 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Tipos de Malware</a></li>
+                        <li><a href="#">Principales ataques de ciberseguridad</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 3 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 3 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Tipos de Malware</a></li>
+                        <li><a href="#">Principales ataques de ciberseguridad</a></li>
+                    </ul>
+                </li>
+
+                <!-- Otro apartado -->
+                <li><a href="02.html">Xd</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">Este es un jumbotron de prueba con Bootstrap.</p>
+        <hr class="my-4" style="border-color: var(--baby-powder);">
+        <p>Sirve para resaltar contenido importante en la página.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+
+</body>
+</html>

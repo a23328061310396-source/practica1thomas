@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <title>Proyecto Seguridad</title>
+
+    <style>
+        :root {
+            --oxford-blue: rgb(182, 172, 30); 
+            --zomp: #2ca58dff;
+            --cambridge-blue: #6abc5cff;
+            --baby-powder: #fffdf2;
+            --cyclamen: #B236E7;
+        }
+
+        body {
+            background-color: var(--baby-powder);
+        }
+
+        .navbar {
+            background-color: var(--oxford-blue) !important;
+        }
+
+        .navbar a {
+            color: white !important;
+        }
+
+        .navbar a:hover {
+            background-color: var(--zomp) !important;
+            color: white !important;
+        }
+
+        h2 {
+            color: var(--cyclamen);
+            margin-top: 20px;
+        }
+
+        .section {
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <!-- Menú desplegable Unidad 1 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="02.html">Tipos de Malware</a></li>
+                        <li><a href="xd.html">Ciberataques</a></li>
+                    </ul>
+                </li>
+                <!-- Menú desplegable Unidad 2 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#malware">Tipos de Malware</a></li>
+                        <li><a href="#ataques">Ciberataques</a></li>
+                    </ul>
+                </li>
+                <!-- Menú desplegable Unidad 3 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 3 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="02.html">Tipos de Malware</a></li>
+                        <li><a href="xd.html">Ciberataques</a></li>
+                    </ul>
+                </li>
+                <li><a href="02.html">Xd</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div id="malware" class="section">
+            <h2>Tipos de Malware</h2>
+            <p><strong>Virus:</strong> Programas que se insertan en archivos legítimos para propagarse.</p>
+            <p><strong>Gusanos:</strong> Se replican automáticamente y se propagan en redes.</p>
+            <p><strong>Troyanos:</strong> Se disfrazan como programas legítimos, pero dañan o roban información.</p>
+            <p><strong>Spyware:</strong> Espía la actividad del usuario y roba datos.</p>
+            <p><strong>Ransomware:</strong> Bloquea el acceso a los datos y pide un rescate.</p>
+        </div>
+
+        <div id="ataques" class="section">
+            <h2>Principales Ciberataques</h2>
+            <p><strong>Phishing:</strong> Engaña al usuario con correos o sitios falsos.</p>
+            <p><strong>DDoS:</strong> Sobrecarga servidores para interrumpir servicios.</p>
+            <p><strong>Ingeniería Social:</strong> Manipula a las personas para obtener información.</p>
+            <p><strong>SQL Injection:</strong> Inserta código malicioso en consultas a bases de datos.</p>
+            <p><strong>Man-in-the-Middle:</strong> Intercepta la comunicación entre dos partes.</p>
+        </div>
+    </div>
+
+</body>
+</html>
