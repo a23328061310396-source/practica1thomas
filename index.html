@@ -1,165 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Calculadora</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- jQuery -->
+    
+    <!-- Bootstrap 3 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-    <title>Alejandro Uriel Gonzalez Reyes</title>
+    <!-- Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/schnoerkel-caps" rel="stylesheet"/>
+    <link href="https://fonts.cdnfonts.com/css/kingsmen" rel="stylesheet"/>
 
     <style>
         :root {
-            --oxford-blue: #2c3e50; 
-            --zomp: #2ca58d;
-            --cambridge-blue: #6abc5c;
-            --baby-powder: #fffdf2;
-            --cyclamen: #B236E7;
-            --hover-dark: #1a252f;
+            --salmon: #f08e7a;
+            --ghost-white: #f6f6fd;
+            --alice-blue: #d7e6ed;
+            --tiffany-blue: #7fdcc8;
+            --yinmn-blue: #324d71;
+            --light-red: #f28b82;
+            --soft-gray: #e0e0e0;
         }
-
-        /* Navbar personalizado */
-        .navbar {
-            background-color: var(--oxford-blue);
-            border: none;
-            border-radius: 0;
+    
+        body {
+            background-color: var(--ghost-white);
+            font-family: 'Kingsmen', sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
-
-        .navbar-brand,
-        .navbar-nav > li > a {
-            color: white !important;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+    
+        .calc {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .navbar-nav > li > a:hover,
-        .navbar-brand:hover {
-            background-color: var(--zomp) !important;
-            color: var(--baby-powder) !important;
-        }
-
-        /* Dropdown principal */
-        .dropdown-menu {
-            background-color: var(--baby-powder);
-            border: 1px solid var(--cambridge-blue);
+    
+        .calc input[type="text"] {
+            width: 100%;
+            height: 60px;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: right;
+            padding: 10px;
             border-radius: 8px;
+            border: 2px solid var(--yinmn-blue);
+            background-color: var(--ghost-white);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
         }
-
-        .dropdown-menu > li > a {
-            color: var(--oxford-blue);
-            font-weight: 500;
+    
+        .btn {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-
-        .dropdown-menu > li > a:hover {
-            background-color: var(--cambridge-blue);
-            color: white;
-        }
-
-        /* Submenú (dropdown anidado) */
-        .dropdown-submenu {
-            position: relative;
-        }
-
-        .dropdown-submenu .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -1px;
-        }
-
-        /* Jumbotron */
-        .jumbotron {
-            background: linear-gradient(135deg, var(--oxford-blue), var(--cyclamen));
-            color: white;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .jumbotron h1 {
-            font-size: 48px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        .jumbotron p {
-            font-size: 18px;
-        }
-
-        .btn-primary {
-            background-color: var(--zomp);
+    
+        .btn input[type="button"] {
+            width: 70px;
+            height: 60px;
+            font-size: 22px;
+            margin: 6px;
             border: none;
             border-radius: 10px;
-            padding: 10px 20px;
+            background-color: var(--alice-blue);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .btn-primary:hover {
-            background-color: var(--cambridge-blue);
+    
+        .btn input[type="button"]:hover {
+            background-color: var(--tiffany-blue);
+            transform: scale(1.05);
+        }
+    
+        /* Colores especiales para algunos botones */
+        .btn .btn-clear {
+            background-color: var(--light-red);
+            color: white;
+        }
+    
+        .btn .btn-clear:hover {
+            background-color: #e57373;
+        }
+    
+        .btn .btn-equal {
+            background-color: var(--yinmn-blue);
+            color: white;
+            font-weight: bold;
+        }
+    
+        .btn .btn-equal:hover {
+            background-color: #2c3e5c;
+        }
+    
+        .jumbotron {
+            background-color: var(--ghost-white);
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+    
+        .jumbotron h1, .jumbotron h3, .jumbotron p {
+            margin: 5px;
+        }
+    
+        /* Responsive */
+        @media (max-width: 400px) {
+            .btn input[type="button"] {
+                width: 60px;
+                height: 55px;
+                font-size: 18px;
+                margin: 4px;
+            }
+    
+            .calc input[type="text"] {
+                font-size: 24px;
+            }
         }
     </style>
+    
 </head>
 <body>
 
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Mi Sitio</a>
+    <div class="container">
+        <nav class="navbar navbar-default" style="background-color: var(--salmon);">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="background: var(--tiffany-blue);">Inicio</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: var(--tiffany-blue);">Unidad 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./tabla.html">Conceptos</a></li>
+                            <li><a href="./tabla2.html">Ataques</a></li>
+                            <li><a href="./index.html">Protección</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: var(--tiffany-blue);">Unidad 2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./file4.html">Conceptos</a></li>
+                            <li><a href="./tabla2.html">Ataques</a></li>
+                            <li><a href="./index.html">Protección</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: var(--tiffany-blue);">Unidad 3 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./tabla.html">Conceptos</a></li>
+                            <li><a href="./tabla2.html">Ataques</a></li>
+                            <li><a href="./index.html">Protección</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav">
-
-                <!-- Unidad 1 con submenú -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="xd.html">Tipos de ciberataques</a></li>
-                        <li><a href="02.html">Tipos de malware</a></li>
-                    </ul>
-                </li>
-
-                <!-- Unidad 2 con submenú -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 2 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Tipos de Malware</a></li>
-                        <li><a href="#">Principales ataques de ciberseguridad</a></li>
-                    </ul>
-                </li>
-
-                <!-- Unidad 3 con submenú -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 3 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Tipos de Malware</a></li>
-                        <li><a href="#">Principales ataques de ciberseguridad</a></li>
-                    </ul>
-                </li>
-
-                <!-- Otro apartado -->
-                <li><a href="02.html">Xd</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Contenido principal -->
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">Este es un jumbotron de prueba con Bootstrap.</p>
-        <hr class="my-4" style="border-color: var(--baby-powder);">
-        <p>Sirve para resaltar contenido importante en la página.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
+        </nav>
     </div>
 
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>Alejandro Uriel Gonzalez Reyes</h1>
+        <h3>Programación 5A</h3>
+        <p>Construye Páginas Web</p>
+    </div>
+
+    <!-- Calculadora -->
+    <div class="container">
+        <div class="calc">
+            <input type="text" id="ans" readonly>
+            <div class="btn">
+                <input type="button" value="C" onclick="Clear()">
+                <input type="button" value="%" onclick="Solve('%')">
+                <input type="button" value="←" onclick="Back()">
+                <input type="button" value="/" onclick="Solve('/')"><br>
+
+                <input type="button" value="7" onclick="Solve('7')">
+                <input type="button" value="8" onclick="Solve('8')">
+                <input type="button" value="9" onclick="Solve('9')">
+                <input type="button" value="x" onclick="Solve('*')"><br>
+
+                <input type="button" value="4" onclick="Solve('4')">
+                <input type="button" value="5" onclick="Solve('5')">
+                <input type="button" value="6" onclick="Solve('6')">
+                <input type="button" value="-" onclick="Solve('-')"><br>
+
+                <input type="button" value="1" onclick="Solve('1')">
+                <input type="button" value="2" onclick="Solve('2')">
+                <input type="button" value="3" onclick="Solve('3')">
+                <input type="button" value="+" onclick="Solve('+')"><br>
+
+                <input type="button" value="00" onclick="Solve('00')">
+                <input type="button" value="0" onclick="Solve('0')">
+                <input type="button" value="." onclick="Solve('.')">
+                <input type="button" value="=" onclick="Result()"><br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function Solve(val) {
+            document.getElementById('ans').value += val;
+        }
+
+        function Result() {
+            try {
+                const expression = document.getElementById('ans').value;
+                const result = eval(expression);
+                document.getElementById('ans').value = result;
+            } catch (e) {
+                alert("Expresión inválida");
+            }
+        }
+
+        function Clear() {
+            document.getElementById('ans').value = '';
+        }
+
+        function Back() {
+            const input = document.getElementById('ans');
+            input.value = input.value.slice(0, -1);
+        }
+    </script>
 </body>
 </html>
