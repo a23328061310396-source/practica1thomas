@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Personaje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #F78801; /* Color de fondo original */
+        }
+
+        h1 {
+            text-align: center; /* Centrar el título principal */
+            font-family: 'Verdana', sans-serif;
+            color: white;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 900px; /* Ancho fijo como en tu código */
+            margin: 20px auto; /* Centra la tabla horizontalmente y añade espacio vertical */
+            background-color: rgba(255, 255, 255, 0.904); /* Fondo semi-transparente */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra suave para mejor apariencia */
+            color: #333; /* Color de texto base para mejor legibilidad */
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #ddd; /* Borde sutil para separar celdas */
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+        
+        /* Estilo para filas pares, aplica un fondo azul */
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Un gris claro para las filas de datos para no chocar con el azul */
+        }
+
+        /* Estilo para las cabeceras de sección dentro de la tabla */
+        .section-header {
+            background-color: #f0f0f0;
+            color: gray;
+            font-weight: bold;
+        }
+        
+        .section-header i {
+            margin: 0 5px; /* Espacio alrededor de los iconos */
+        }
+
+        img.profile-pic {
+            width: 300px;
+            height: 300px;
+            display: block;
+            border-radius: 50%; /* Esto hace la imagen circular */
+            border: 10px double #4e064e; /* Borde doble morado */
+        }
+        
+        /* Estilos para los párrafos de datos */
+        p {
+            margin: 8px 0; /* Espacio entre los párrafos */
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+   <h1>Los de 5A</h1>
+
+   <table>
+       <tr>
+           <td>
+               <img src="perfil.jpg" alt="Gambit" class="profile-pic">
+           </td>
+           <td>
+               <p><b>Genero:</b> Masculino</p>
+               <p><b>Raza:</b> Mutante</p>
+               <p><b>Nacimiento:</b> junio 2008</p>
+               <p><b>Calle:</b>  Flor de lirio</p>
+               <p><b>Ciudad:</b> Miami, Florida (FL), 33139</p>
+               <p><b>Telefono:</b> 305-672-2736</p>
+               <p><b>Celular:</b> 786-447-6507</p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="text-align: center; font-weight: bold; background-color: rgba(0,0,0,0.8); color: white;">
+               Gambit de los X-Men
+           </td>
+       </tr>
+   </table>
+
+   <hr>
+
+   <table>
+       <tr class="section-header">
+           <td colspan="2">
+               <i class="fa fa-user" aria-hidden="true"></i>
+               INFORMACIÓN BÁSICA
+               <i class="fa fa-question-circle" aria-hidden="true"></i>
+           </td>
+       </tr>
+       <tr>
+           <td>
+               <p style="color: gray;">E-Mail</p>
+               <p style="color: gray;">Altura</p>
+               <p style="color: gray;">Peso</p>
+               <p style="color: gray;">Color de Pelo</p>
+               <p style="color: gray;">Tipo de Sangre</p>
+               <p style="color: gray;">Signo Zodiacal</p>
+               <p style="color: gray;">Apellido Paterno</p>
+               <p style="color: gray;">Apellido Materno</p>
+               <p style="color: gray;">Estado Civil</p>
+               <p style="color: gray;">Educacion</p>
+               <p style="color: gray;">Historial de Enfermedades</p>
+           </td>
+           <td style="background-color: white; color: black;">
+               <p>gambit@xmen.com</p>
+               <p>1.75 mts</p>
+               <p>65 Kg</p>
+               <p>Cafe</p>
+               <p>mango</p>
+               <p>Casado</p>
+               <p>High-School</p>
+               <p>Ninguna</p>
+           </td>
+       </tr>
+       <tr class="section-header">
+           <td colspan="2">
+               <i class="fa fa-check-square" aria-hidden="true"></i>
+               INFORMACIÓN DE EMPLEO
+               <i class="fa fa-question-circle" aria-hidden="true"></i>
+           </td>
+       </tr>
+       <tr>
+           <td>
+               <p style="color: gray;">Estado del Empleo</p>
+               <p style="color: gray;">Salario Mensual</p>
+               <p style="color: gray;">Ocupacion</p>
+               <p style="color: gray;">Nombre de la Empresa</p>
+               <p style="color: gray;">Tamaño de la Empresa</p>
+               <p style="color: gray;">Industria</p>
+           </td>
+           <td style="background-color: white; color: black;">
+               <p>Tiempo Completo</p>
+               <p>$500,000,000</p>
+               <p>Superheroe</p>
+           </td>
+       </tr>
+   </table>
+</body>
+</html>
