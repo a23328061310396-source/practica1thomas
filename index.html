@@ -105,6 +105,13 @@
         .btn-primary:hover {
             background-color: var(--cambridge-blue);
         }
+
+        /* Si quieres que el iframe ocupe pantalla completa dentro del modal */
+        .modal-body iframe {
+            width: 100%;
+            height: 70vh; /* ajustar al gusto (vh = viewport height) */
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -157,8 +164,28 @@
         <hr class="my-4" style="border-color: var(--baby-powder);">
         <p>Sirve para resaltar contenido importante en la página.</p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          <!-- Botón modificado: ya no navega fuera de la página, abre el modal -->
+          <a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#profileModal">Visitar Perfil</a>
         </p>
+    </div>
+
+    <!-- Modal (ventana emergente) que carga profile.html dentro de un iframe -->
+    <div id="profileModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel">
+      <div class="modal-dialog modal-lg" role="document" style="width:90%; max-width:1200px;">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--oxford-blue); color:white;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="profileModalLabel">Perfil</h4>
+          </div>
+          <div class="modal-body" style="padding:0;">
+             <!-- Aquí se carga la página profile.html dentro del iframe -->
+             <iframe src="profile.html" title="Perfil" frameborder="0"></iframe>
+          </div>
+          <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
 </body>
