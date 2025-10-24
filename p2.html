@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Búsqueda de Cartas - Yu-Gi-Oh! DB</title>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000; 
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.5rem;
+      color: #ffd700; 
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    input[type="text"] {
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 50%;
+      background-color: #2c2c2c;
+      color: #fff;
+    }
+
+    input[type="submit"] {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: #ffd700; 
+      color: #000;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #e6c200;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); 
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 350px; 
+      object-fit: contain;
+      border-bottom: 3px solid #ffd700;
+    }
+
+    .card-info {
+      padding: 15px;
+      flex-grow: 1;
+    }
+
+    .card-info h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.3rem;
+      color: #ffd700;
+    }
+    
+    .type-line {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+    
+    .stats {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #aaa;
+      margin-top: 10px;
+      padding-top: 5px;
+      border-top: 1px dashed #333;
+    }
+
+    .stats .atk {
+      color: #ff4d4d; 
+    }
+    
+    .stats .def {
+      color: #66b3ff; 
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .status-message {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 50px;
+      color: #fff;
+    }
+       .navbar {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron {
+            background-color: var(--ghostwhite);
+            padding: 30px;
+            text-align: center;
+        }
+        footer{
+          position: fixed;
+          bottom: 0;
+          left: 0; 
+          width: 100%;  
+          background-color: #222;
+        }
+      :root {
+            --oxford-blue: #2c3e50; 
+            --zomp: #2ca58d;
+            --cambridge-blue: #6abc5c;
+            --baby-powder: #fffdf2;
+            --cyclamen: #B236E7;
+            --hover-dark: #1a252f;
+        }
+
+        /* Navbar personalizado */
+        .navbar {
+            background-color: var(--oxford-blue);
+            border: none;
+            border-radius: 0;
+        }
+
+        .navbar-brand,
+        .navbar-nav > li > a {
+            color: rgb(33, 52, 115) !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav > li > a:hover,
+        .navbar-brand:hover {
+            background-color: var(--zomp) !important;
+            color: var(--baby-powder) !important;
+        }
+
+        /* Dropdown principal */
+        .dropdown-menu {
+            background-color: var(--baby-powder);
+            border: 1px solid var(--cambridge-blue);
+            border-radius: 8px;
+        }
+
+        .dropdown-menu > li > a {
+            color: var(--oxford-blue);
+            font-weight: 500;
+        }
+
+        .dropdown-menu > li > a:hover {
+            background-color: var(--cambridge-blue);
+            color: white;
+        }
+
+        /* Submenú (dropdown anidado) */
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
+  </style>
+</head>
+<body>
+     <!-- Barra de navegación -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Mi Sitio</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                <!-- Unidad 1 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="xd.html">Tipos de ciberataques</a></li>
+                        <li><a href="02.html">Tipos de malware</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 2 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="profile.html">Perfil</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 3 con submenú -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 3 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Tipos de Malware</a></li>
+                        <li><a href="#">Principales ataques de ciberseguridad</a></li>
+                    </ul>
+                </li>
+
+                <!-- Otro apartado -->
+                <li><a href="02.html">Xd</a></li>
+                <li><a href="p2.html">Yu-Gi-Oh</a></li>
+
+            </ul>
+        </div>
+    </nav>
+  <div class="container">
+    <h1>Yu-Gi-Oh! Deck Builder 🃏🐉</h1>
+    <form id="form">
+      <input type="text" id="search" placeholder="Busca una carta (ej: Dark Magician)" />
+      <input type="submit" value="Buscar" />
+    </form>
+    <section id="main" class="cards"></section>
+  </div>
+<footer>
+  <h1>Melendez Roman Juan Gerardo, Gonzalez Reyes Alejandro Uriel, Rangel Armendarez Victor Adrian, Hernandez Velazquez Jose Antonio, Lucas Martinez Alejandro Javier, Valadez Delgado Oscar</h1> 
+</footer>
+  <script>
+    const BASE_API_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
+    
+    const main = document.getElementById('main');
+    const form = document.getElementById('form');
+    const search = document.getElementById('search');
+
+    main.innerHTML = '<p class="status-message">¡Es hora del duelo! Busca una carta por su nombre.</p>';
+
+    async function getCards(searchTerm) {
+      main.innerHTML = '<p class="status-message">Invocando cartas...</p>';
+      
+      const finalUrl = `${BASE_API_URL}?fname=${encodeURIComponent(searchTerm)}`;
+
+      try {
+        const res = await fetch(finalUrl);
+        if (!res.ok) {
+            throw new Error(`Error HTTP: ${res.status}`);
+        }
+        const data = await res.json();
+        
+        const cards = data.data; 
+
+        if (!cards || cards.length === 0) {
+            main.innerHTML = '<p class="status-message" style="color: #dc3545;">No se encontraron cartas con ese nombre. ¡Asegúrate de escribirlo bien!</p>';
+        } else {
+            showCards(cards);
+        }
+      } catch (error) {
+        console.error('Error al obtener datos:', error);
+        main.innerHTML = `<p class="status-message" style="color: #dc3545;">Error al cargar los datos: ${error.message}. Asegúrate de que la API esté disponible.</p>`;
+      }
+    }
+
+    function showCards(cards) {
+      main.innerHTML = '';
+
+      cards.forEach(card => {
+        const { 
+            name, 
+            type, 
+            race, 
+            desc, 
+            atk, 
+            def, 
+            level, 
+            card_images 
+        } = card;
+        const imageUrl = (card_images && card_images[0] && card_images[0].image_url) 
+                         || 'https://via.placeholder.com/421x614?text=No+Card+Image'; 
+        
+        const typeInfo = `${race} / ${type}`;
+
+        const stats = (type.toLowerCase().includes('monster') || type.toLowerCase().includes('xyz'))
+            ? `<div class="stats">ATK/<span class="atk">${atk || '?'}</span> DEF/<span class="def">${def || '?'}</span> Nivel: ${level || '?'}</div>`
+            : '';
+        
+        const cardEl = document.createElement('div');
+        cardEl.classList.add('card');
+
+        cardEl.innerHTML = `
+          <img src="${imageUrl}" alt="${name}">
+          <div class="card-info">
+            <h3>${name}</h3>
+            <p class="type-line">${typeInfo}</p>
+            ${stats}
+            <p class="description">${desc}</p>
+          </div>
+        `;
+
+        main.appendChild(cardEl);
+      });
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const searchTerm = search.value.trim();
+
+      if (searchTerm) {
+        getCards(searchTerm);
+        search.value = ''; 
+      } else {
+ 
+        main.innerHTML = '<p class="status-message">Por favor, introduce el nombre de una carta para empezar el duelo.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
